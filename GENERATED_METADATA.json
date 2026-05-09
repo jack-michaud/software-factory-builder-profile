@@ -1,0 +1,7 @@
+{
+  "role": "builder",
+  "repo": "hermes-softwarefactorybuilder-profile",
+  "source_dir": "profiles/builder",
+  "dry_run_only": true,
+  "requires_human_approval_to_publish": true
+}
