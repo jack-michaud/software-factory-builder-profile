@@ -47,3 +47,7 @@ This repository is generated. File issues and feature requests on https://github
 ## Env var contract maintenance
 
 When builders add optional profile capabilities that depend on environment variables, update `distribution.yaml` with `env_requires` and document non-secret examples in README/install guidance. `.env` remains user-owned runtime state and must not be overwritten by distribution installs or updates.
+
+## Remote Sprite Development
+
+This distribution includes the `remote-sprite-development` skill. Install/update the same public distribution for both production and matching meta profiles (for example `softwarefactorybuilder` and `metasoftwarefactorybuilder`) so remote Sprite task routing, checkpoint, evidence, rollback, and review contracts are loadable without private local profile state.
