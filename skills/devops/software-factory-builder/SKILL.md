@@ -40,7 +40,7 @@ When a PM-required disposable validation chain reaches a builder install/cleanup
 
 Performance guardrail: do not request or perform disposable validation for low-risk docs/comment-only edits, typo fixes, or reviewer-static-sufficient work unless PM/human explicitly requires it.
 
-Precedent: t_7c6d97af resolved a broken local Hermes wrapper by using the venv Hermes executable and verified the root `distribution.yaml`; t_623387b6 produced a preserved disposable PM validation artifact; t_f823dfba pruned the disposable profile with canonical Hermes profile delete after rollout/docs evidence was preserved.
+Reusable precedent language: disposable-profile install evidence should verify the source distribution root, including `distribution.yaml` when relevant; wrapper fallback is acceptable when the expected local Hermes wrapper is broken, but evidence should name the approved fallback executable without exposing private profile state; preserve approved non-secret validation artifacts before cleanup; prune disposable profiles with canonical Hermes profile delete only after rollout/docs evidence is preserved.
 
 ## Source-update Git Flow
 
