@@ -44,3 +44,6 @@ Generated manifest: GENERATED_METADATA.json
 License: MPL-2.0
 
 This repository is generated. File issues and feature requests on https://github.com/jack-michaud/software-factory rather than editing this generated repository directly.
+## Env var contract maintenance
+
+When builders add optional profile capabilities that depend on environment variables, update `distribution.yaml` with `env_requires` and document non-secret examples in README/install guidance. `.env` remains user-owned runtime state and must not be overwritten by distribution installs or updates.
