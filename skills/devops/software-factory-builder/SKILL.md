@@ -41,3 +41,13 @@ When a PM-required disposable validation chain reaches a builder install/cleanup
 Performance guardrail: do not request or perform disposable validation for low-risk docs/comment-only edits, typo fixes, or reviewer-static-sufficient work unless PM/human explicitly requires it.
 
 Precedent: t_7c6d97af resolved a broken local Hermes wrapper by using the venv Hermes executable and verified the root `distribution.yaml`; t_623387b6 produced a preserved disposable PM validation artifact; t_f823dfba pruned the disposable profile with canonical Hermes profile delete after rollout/docs evidence was preserved.
+
+## Source-update Git Flow
+
+When a Builder task is assigned source-update work, treat the PM-provided Source Map as the starting authority for canonical source repositories. Clone or fetch those canonical repos into the Kanban task workspace before editing, then create a task/work-named topic branch in every repo that will be changed. Source Map entries may include a superproject, role profile source repositories, shared skill/source locations, and related profile repos for coverage review.
+
+Edit source-controlled files only. Installed runtime/profile directories such as `~/.hermes/profiles/*` are not canonical source and must not be used as final state or as a substitute for missing repo access. Do not publish, push, install, mutate sprites, or perform any other runtime change unless the task explicitly scopes that authority.
+
+If a Source Map entry, repo coordinate, access path, or canonical source authority is missing or inaccessible, block with the missing public coordinate and the exact unblock condition. Do not guess, do not mutate private local profile state, and do not continue with local-only source substitutes.
+
+Leave reviewer/publisher evidence in the Kanban handoff: repo URLs, workspace-local paths, branch names, commit hashes, changed files, diff or diff-stat output, validation output, a target-profile coverage matrix, and an explicit statement about whether superproject submodule pointers or shared files changed.
