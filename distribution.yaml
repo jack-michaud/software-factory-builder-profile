@@ -7,7 +7,7 @@ source:
   type: monorepo-generated
   monorepo: software-factory-profiles
   role: builder
-  generated_repo: hermes-softwarefactorybuilder-profile
+  generated_repo: software-factory-builder-profile
 distribution_owned:
   - README.md
   - SOUL.md
