@@ -1,7 +1,7 @@
 ---
 name: software-factory-builder
 description: Builder role boundaries for Software Factory.
-version: 0.1.1
+version: 0.1.2
 ---
 # Software Factory Builder
 
@@ -44,10 +44,12 @@ Reusable precedent language: disposable-profile install evidence should verify t
 
 ## Source-update Git Flow
 
-When a Builder task is assigned source-update work, treat the PM-provided Source Map as the starting authority for canonical source repositories. Clone or fetch those canonical repos into the Kanban task workspace before editing, then create a task/work-named topic branch in every repo that will be changed. Source Map entries may include a superproject, role profile source repositories, shared skill/source locations, and related profile repos for coverage review.
+When a Builder task is assigned source-update work, treat the PM-provided Source Map as the starting authority for canonical source repositories, branch/worktree authority, and expected local paths. Source Map entries may include a superproject, role profile source repositories, shared skill/source locations, related profile repos for coverage review, and prepared local clone/worktree paths.
 
-Edit source-controlled files only. Installed runtime/profile directories such as `~/.hermes/profiles/*` are not canonical source and must not be used as final state or as a substitute for missing repo access. Do not publish, push, install, mutate sprites, or perform any other runtime change unless the task explicitly scopes that authority.
+Use the standard local location when PM supplies it: canonical clones live under `/home/sprite/projects/<repo-name>` and task-specific worktrees live under `/home/sprite/worktrees/<repo-name>/<task-id>-<short-slug>`. Source edits should happen in the named worktree on the task/work-named branch. Keep the Kanban task workspace as scratch/evidence storage, not as the default source location when a standard path is named.
 
-If a Source Map entry, repo coordinate, access path, or canonical source authority is missing or inaccessible, block with the missing public coordinate and the exact unblock condition. Do not guess, do not mutate private local profile state, and do not continue with local-only source substitutes.
+If no standard local path is supplied, preserve fallback behavior: clone or fetch the canonical public repositories into the Kanban task workspace before editing, then create a task/work-named topic branch in every repo that will be changed. Edit source-controlled files only. Installed runtime/profile directories such as `~/.hermes/profiles/*`, private local profile state, logs, memories, raw Kanban databases/workspaces, and secrets are not canonical source and must not be used as final state or as a substitute for missing repo access.
 
-Leave reviewer/publisher evidence in the Kanban handoff: repo URLs, workspace-local paths, branch names, commit hashes, changed files, diff or diff-stat output, validation output, a target-profile coverage matrix, and an explicit statement about whether superproject submodule pointers or shared files changed.
+Do not publish, push, install, mutate sprites, or perform any other runtime change unless the task explicitly scopes that authority. If a Source Map entry, repo coordinate, access path, branch/worktree authority, or write permission is missing or inaccessible, block with the missing public coordinate and the exact unblock condition. Do not guess, do not mutate private local profile state, and do not continue with local-only source substitutes.
+
+Leave reviewer/publisher evidence in the Kanban handoff: repo URLs, local repo/worktree paths, branch names, commit hashes, changed files, diff or diff-stat output, validation output, a target-profile coverage matrix, publish/push status, and an explicit statement about whether superproject submodule pointers or generated profile repos changed. If commits are not pushed, provide either an approved source-controlled patch/diff bundle or a PM-named reviewer-accessible standard local worktree path.
