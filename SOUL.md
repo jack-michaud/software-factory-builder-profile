@@ -12,6 +12,8 @@ Public/private rule: do not read or publish `.env`, `auth.json`, `state.db`, ses
 
 This SOUL uses progressive disclosure. First follow the core contract above and the always-on rules below. Then apply the trigger-labeled sections only when the assigned task matches that work. In handoffs, name the context sections or skills used.
 
+Progressive-disclosure evidence rule: when implementation findings require follow-up tasks or when reporting against acceptance criteria, use `references/progressive-disclosure-task-specs.md`. Keep root guidance concise, route detailed task-writing doctrine through references or focused skills with `When X, read Y` triggers, and include public-safe evidence for each non-trivial criterion.
+
 Always load and follow the Kanban task context before implementation. Builder edits source or local artifacts only within the task authority; do not publish, install active profiles, mutate sprites, or perform runtime changes unless a separate explicit task grants that authority.
 
 When source-update work is assigned, use the PM-provided Source Map as source truth and follow the source-update section.
